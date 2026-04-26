@@ -27,6 +27,7 @@
       color: var(--dark);
       line-height: 1.6;
       background: var(--white);
+      scroll-behavior: smooth;
     }
 
     nav {
@@ -44,7 +45,7 @@
     }
 
     .nav-logo img {
-      height: 55px; /* Tinggi optimal untuk logo SNN */
+      height: 60px; /* Sedikit lebih besar agar terlihat jelas */
       width: auto;
       display: block;
     }
@@ -130,7 +131,7 @@
 
     .section-title p {
       color: var(--gray);
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       font-size: 1.1rem;
     }
@@ -152,12 +153,12 @@
       border-radius: 20px;
       box-shadow: var(--shadow);
       transition: 0.3s;
-      border-bottom: 4px solid transparent;
+      border-top: 5px solid var(--primary); /* Memberi aksen garis di atas */
     }
 
     .card:hover {
       transform: translateY(-10px);
-      border-color: var(--gold);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
 
     .card h3 {
@@ -168,11 +169,12 @@
 
     .card .role {
       display: block;
-      color: var(--gold);
+      color: #d42f2f; /* Merah sesuai permintaan untuk title role */
       font-weight: 700;
       font-size: 0.85rem;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
     .dealer-box {
@@ -223,8 +225,8 @@
 
   <nav>
     <div class="nav-logo">
-      <!-- FIXED: Menangani potensi perbedaan nama file secara otomatis -->
-      <img src="logo-snn.png" alt="SNN Logo" onerror="this.src='logo-snn.png.png'">
+      <!-- FIXED: Nama file disesuaikan dengan folder anda: logo.png -->
+      <img src="logo.png" alt="SNN Logo" onerror="this.src='logo-snn.png'">
     </div>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -250,23 +252,22 @@
     <div class="section-title">
       <h2>About Us</h2>
       <p>
-        PT Sarana Nusantara Niagatama (SNN) stands at the forefront of Indonesia's premium golf industry, 
-        prioritizing performance, precision, and partnership.
+        PT Sarana Nusantara Niagatama (SNN) adalah distributor golf premium terpercaya di Indonesia yang fokus pada penyediaan komponen berkualitas tinggi untuk meningkatkan performa pemain di lapangan. Dengan pengalaman lebih dari dua dekade, kami telah membangun reputasi melalui keunggulan produk dan layanan teknis yang presisi.
       </p>
     </div>
 
     <div class="cards">
       <div class="card">
         <h3>20+ Years Excellence</h3>
-        <p>Serving Indonesia's golf ecosystem with a commitment to quality and professional reliability.</p>
+        <p>Kami telah melayani bisnis golf dan profesional selama lebih dari 20 tahun dengan komitmen pada ketersediaan stok produk premium dan dukungan purna jual yang handal.</p>
       </div>
       <div class="card">
         <h3>World-Class Brands</h3>
-        <p>Official partners for UST Mamiya, True Temper, KBS, Golf Pride, Project X, and Graphite Design.</p>
+        <p>Distributor resmi untuk brand dunia seperti UST Mamiya, True Temper, KBS, Golf Pride, Winn, Lamkin, Project X, dan Graphite Design.</p>
       </div>
       <div class="card">
         <h3>Nationwide Impact</h3>
-        <p>Supplying the finest golf shops, fitting studios, and pro shops from Jakarta to Bali.</p>
+        <p>Memiliki jaringan dealer yang kuat di seluruh Indonesia, memastikan distribusi yang cepat dan dukungan teknis bagi seluruh mitra bisnis kami.</p>
       </div>
     </div>
   </section>
@@ -280,22 +281,22 @@
       <div class="card">
         <span class="role">President Director</span>
         <h3>Ridwan Lim</h3>
-        <p>Strategizing long-term growth and high-level distribution partnerships.</p>
+        <p>Memimpin arah strategis perusahaan, menjalin kemitraan global, dan memastikan pertumbuhan bisnis distribusi golf yang berkelanjutan di pasar Indonesia.</p>
       </div>
       <div class="card">
         <span class="role">Vice President</span>
         <h3>Wawan Priyanto</h3>
-        <p>Driving operational excellence and expanding our trusted dealer network.</p>
+        <p>Mengawasi eksekusi strategi bisnis harian serta memperkuat hubungan dengan seluruh jaringan dealer dan mitra ritel di berbagai wilayah.</p>
       </div>
       <div class="card">
         <span class="role">Marketing Director</span>
         <h3>Kriswandono</h3>
-        <p>Leading brand positioning and strategic marketing initiatives.</p>
+        <p>Bertanggung jawab atas strategi pemasaran brand premium, promosi produk baru, dan memastikan standar pelayanan terbaik bagi pelanggan.</p>
       </div>
       <div class="card">
         <span class="role">Operational Director</span>
         <h3>Safran</h3>
-        <p>Ensuring efficiency in supply chain and distribution nationwide.</p>
+        <p>Mengelola rantai pasok dan efisiensi operasional perusahaan untuk memastikan ketersediaan produk serta pengiriman tepat waktu ke seluruh Indonesia.</p>
       </div>
     </div>
   </section>
@@ -306,9 +307,9 @@
       <p>We provide the essential components that drive performance on the course.</p>
     </div>
     <div class="cards">
-      <div class="card"><h3>Premium Shafts</h3><p>Selection of carbon and steel shafts for every swing profile.</p></div>
-      <div class="card"><h3>High-Tech Grips</h3><p>Innovation in feel and durability from global leaders.</p></div>
-      <div class="card"><h3>Fitting Tools</h3><p>Professional equipment for precision clubmaking and repairs.</p></div>
+      <div class="card"><h3>Premium Shafts</h3><p>Pilihan shaft carbon dan steel terbaik untuk kebutuhan club fitting profesional.</p></div>
+      <div class="card"><h3>High-Tech Grips</h3><p>Grip berteknologi tinggi untuk kenyamanan dan kontrol maksimal di setiap ayunan.</p></div>
+      <div class="card"><h3>Fitting Tools</h3><p>Perlengkapan bengkel golf (clubmaking tools) dan aksesoris pendukung kualitas premium.</p></div>
     </div>
   </section>
 
