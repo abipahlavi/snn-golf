@@ -1,209 +1,288 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Sarana Nusantara Niagatama | Premium Golf Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0a254d;
-            --red: #d42f2f;
-            --white: #ffffff;
-            --light-bg: #f8f9fa;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PT Sarana Nusantara Niagatama | Premium Golf Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b2c4d;
+      --gold: #c9a227;
+      --light: #f8f9fb;
+      --dark: #1a1a1a;
+      --gray: #666;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background-color: var(--white); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 0.8rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-logo img { height: 60px; width: auto; display: block; }
-        .nav-right { display: flex; align-items: center; gap: 2rem; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--red); }
-        
-        /* Language Switcher */
-        .lang-switch { display: flex; gap: 5px; background: #eee; padding: 3px; border-radius: 20px; }
-        .lang-btn { cursor: pointer; padding: 5px 12px; font-size: 0.7rem; font-weight: bold; border-radius: 15px; transition: 0.3s; }
-        .lang-btn.active { background: var(--navy); color: white; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--white);
+    }
 
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2000') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            color: white; text-align: center; padding: 0 10%;
-        }
-        #hero .tagline { letter-spacing: 4px; text-transform: uppercase; font-size: 1rem; border-bottom: 2px solid var(--red); padding-bottom: 5px; margin-bottom: 20px; }
-        #hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; max-width: 900px; margin-bottom: 20px; }
-        #hero p { font-size: 1.2rem; max-width: 700px; }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
 
-        /* Common Section Style */
-        .section { padding: 100px 10%; }
-        .bg-light { background: var(--light-bg); }
-        .center { text-align: center; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 20px; }
-        .sub-title { font-size: 1rem; color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; display: block; }
-        
-        /* Read More Functionality */
-        .more-content { display: none; margin-top: 20px; }
-        .read-more-btn { color: var(--red); cursor: pointer; font-weight: 700; text-decoration: underline; display: inline-block; margin-top: 10px; }
+    .logo {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
 
-        /* Grid System */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 40px; border-top: 4px solid var(--navy); box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--navy); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
-        
-        /* Leadership Style */
-        .leader-card h3 { margin-bottom: 5px; font-size: 1.5rem; }
-        .leader-card .pos { display: block; color: var(--red); font-weight: bold; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
 
-        footer { background: #050f1f; color: white; padding: 60px 10%; text-align: center; }
-        .cta-btn { background: var(--red); color: white; padding: 15px 30px; text-decoration: none; font-weight: 700; border-radius: 4px; display: inline-block; margin-top: 30px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2.2rem; }
-            nav ul { display: none; }
-            .section { padding: 60px 5%; }
-        }
-    </style>
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1600') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 120px 8% 80px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 14px 30px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .about {
+      background: var(--light);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .dealer-box {
+      background: var(--primary);
+      color: white;
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .contact {
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">
-            <!-- PENTING: Ganti src jika nama file di github berbeda -->
-            <img src="logo.png" alt="SNN Logo">
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="#hero" class="tr" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
-                <li><a href="#about" class="tr" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
-                <li><a href="#brands" class="tr" data-id="BRAND" data-en="BRANDS">BRAND</a></li>
-                <li><a href="#leadership" class="tr" data-id="TIM" data-en="TEAM">TIM</a></li>
-                <li><a href="#contact" class="tr" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
-            </ul>
-            <div class="lang-switch">
-                <div class="lang-btn active" onclick="changeLang('id', this)">ID</div>
-                <div class="lang-btn" onclick="changeLang('en', this)">EN</div>
-            </div>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-logo">
+      <img src="./logo.png" alt="SNN Logo" style="height: 60px; width: auto; display: block;">
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#dealer">Dealer</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <header id="hero">
-        <p class="tagline">Precision • Performance • Partnership</p>
-        <h1 class="tr" data-id="Distribusi Golf Premium & Solusi Club Fitting" data-en="Premium Golf Distribution & Club Fitting Solutions">Distribusi Golf Premium & Solusi Club Fitting</h1>
-        <p class="tr" data-id="Distributor Resmi di Indonesia Sejak 2004" data-en="Official Distributor in Indonesia Since 2004">Distributor Resmi di Indonesia Sejak 2004</p>
-    </header>
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Premium Golf Solutions for Indonesia</h1>
+      <p>
+        Trusted distributor of premium golf shafts, grips, club heads, and clubmaking accessories since 2004.
+        Supporting golf professionals, golf shops, and clubmakers across Indonesia.
+      </p>
+      <a href="#about" class="btn">Discover More</a>
+    </div>
+  </section>
 
-    <section id="about" class="section">
-        <div class="center">
-            <h2 class="tr" data-id="Tentang Kami" data-en="About Us">Tentang Kami</h2>
-            <span class="sub-title">Established 2004</span>
-        </div>
-        <div style="max-width: 900px; margin: 0 auto;">
-            <p class="tr" data-id="PT Sarana Nusantara Niagatama (SNN) adalah salah satu distributor golf premium terpercaya di Indonesia, spesialis dalam shaft golf berkinerja tinggi, grip, aksesori clubmaking, dan solusi club fitting profesional." data-en="PT Sarana Nusantara Niagatama (SNN) is one of Indonesia’s trusted premium golf distributors, specializing in high-performance golf shafts, grips, clubmaking accessories, and professional club fitting solutions.">PT Sarana Nusantara Niagatama (SNN) adalah salah satu distributor golf premium terpercaya di Indonesia...</p>
-            
-            <div id="about-more" class="more-content">
-                <p class="tr" data-id="Didirikan pada tahun 2004, SNN telah membangun reputasi kuat dengan menghadirkan produk golf kelas dunia dan layanan distribusi yang andal kepada para profesional golf, dealer, toko golf premium, dan pusat fitting di seluruh Indonesia. Komitmen kami bukan hanya untuk memasok produk premium, tetapi juga untuk menciptakan kemitraan jangka panjang berdasarkan kepercayaan, konsistensi, dan keunggulan kinerja." data-en="Established in 2004, SNN has built a strong reputation by delivering world-class golf products and reliable distribution services to golf professionals, dealers, premium golf shops, and club fitting centers across Indonesia. Our commitment is not only to supply premium products, but also to create long-term partnerships based on trust, consistency, and performance excellence.">Didirikan pada tahun 2004, SNN telah membangun reputasi kuat...</p>
-            </div>
-            <span class="read-more-btn tr" onclick="toggleMore('about-more', this)" data-id="Baca Selengkapnya..." data-en="Read More...">Baca Selengkapnya...</span>
-        </div>
-    </section>
+  <section id="about" class="about">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>
+        PT Sarana Nusantara Niagatama (SNN) is a leading distributor in Indonesia’s premium golf industry,
+        delivering quality products with competitive pricing and excellent service.
+      </p>
+    </div>
 
-    <section id="brands" class="section bg-light center">
-        <h2 class="tr" data-id="Brand Premium" data-en="Premium Brands">Brand Premium</h2>
-        <span class="sub-title tr" data-id="Kualitas Tanpa Kompromi" data-en="Uncompromising Quality">Kualitas Tanpa Kompromi</span>
-        <p class="tr" data-id="SNN dengan bangga mendistribusikan brand golf yang paling dihormati di dunia, dipercaya oleh pemain profesional dan fitter retail premium." data-en="SNN proudly distributes some of the world’s most respected golf brands, trusted by professional players, club fitters, and premium golf retailers.">SNN dengan bangga mendistribusikan brand golf...</p>
-        
-        <div class="grid">
-            <div class="card"><h3>True Temper</h3></div>
-            <div class="card"><h3>Project X</h3></div>
-            <div class="card"><h3>UST Mamiya</h3></div>
-            <div class="card"><h3>KBS</h3></div>
-            <div class="card"><h3>Golf Pride</h3></div>
-            <div class="card"><h3>Graphite Design</h3></div>
-        </div>
-    </section>
+    <div class="cards">
+      <div class="card">
+        <h3>Established Since 2004</h3>
+        <p>Serving golf businesses and professionals with trusted premium golf equipment and accessories.</p>
+      </div>
 
-    <section id="leadership" class="section">
-        <div class="center">
-            <h2 class="tr" data-id="Tim Kepemimpinan" data-en="Leadership Team">Tim Kepemimpinan</h2>
-            <span class="sub-title tr" data-id="Kepemimpinan Eksekutif" data-en="Executive Leadership">Kepemimpinan Eksekutif</span>
-        </div>
-        <div class="grid">
-            <div class="card leader-card">
-                <h3>Ridwan Lim</h3>
-                <span class="pos tr" data-id="Presiden Direktur" data-en="President Director">Presiden Direktur</span>
-                <p class="tr" data-id="Memimpin pertumbuhan strategis jangka panjang, kemitraan distribusi golf premium, dan ekspansi bisnis nasional." data-en="Leading the company’s long-term strategic growth, premium golf distribution partnerships, and nationwide business expansion.">Memimpin pertumbuhan strategis...</p>
-            </div>
-            <div class="card leader-card">
-                <h3>Wawan Priyanto</h3>
-                <span class="pos tr" data-id="Wakil Presiden" data-en="Vice President">Wakil Presiden</span>
-                <p class="tr" data-id="Mendukung eksekusi strategis, pengembangan jaringan dealer, dan operasi bisnis lintas fungsi." data-en="Supporting strategic execution, dealer network development, and cross-functional business operations.">Mendukung eksekusi strategis...</p>
-            </div>
-            <div class="card leader-card">
-                <h3>Kriswandono</h3>
-                <span class="pos tr" data-id="Direktur Pemasaran" data-en="Marketing Director">Direktur Pemasaran</span>
-                <p class="tr" data-id="Bertanggung jawab atas inisiatif pemasaran strategis, pemosisian merek premium, dan ekspansi pasar." data-en="Responsible for strategic marketing initiatives, premium brand positioning, and market expansion.">Bertanggung jawab atas inisiatif...</p>
-            </div>
-            <div class="card leader-card">
-                <h3>Safran</h3>
-                <span class="pos tr" data-id="Direktur Operasional" data-en="Operational Director">Direktur Operasional</span>
-                <p class="tr" data-id="Mengelola keunggulan operasional, kinerja rantai pasok, dan efisiensi distribusi nasional." data-en="Managing operational excellence, supply chain performance, and nationwide distribution efficiency.">Mengelola keunggulan operasional...</p>
-            </div>
-        </div>
-    </section>
+      <div class="card">
+        <h3>Global Brand Partners</h3>
+        <p>Featuring UST Mamiya, True Temper, KBS, Golf Pride, Winn, Lamkin, Project X, and more.</p>
+      </div>
 
-    <section id="contact" class="section bg-light center">
-        <h2 class="tr" data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</h2>
-        <p class="tr" data-id="Mari membangun masa depan distribusi golf premium bersama." data-en="Let’s build the future of premium golf distribution together.">Mari membangun masa depan distribusi golf premium bersama.</p>
-        <div style="margin-top: 30px;">
-            <p><strong>Email:</strong> rid1lim@snngolf.com</p>
-            <p>PT Sarana Nusantara Niagatama, Indonesia</p>
-            <a href="mailto:rid1lim@snngolf.com" class="cta-btn tr" data-id="Jadilah Partner Kami" data-en="Become Our Partner">Jadilah Partner Kami</a>
-        </div>
-    </section>
+      <div class="card">
+        <h3>Fast & Reliable Service</h3>
+        <p>Strong dealer network, fast delivery, and excellent customer support throughout Indonesia.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 PT Sarana Nusantara Niagatama. All Rights Reserved.</p>
-    </footer>
+  <section id="products">
+    <div class="section-title">
+      <h2>Our Products</h2>
+      <p>Premium golf products built for performance, precision, and professional results.</p>
+    </div>
 
-    <script>
-        function changeLang(lang, btn) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.tr').forEach(el => {
-                el.innerText = el.getAttribute('data-' + lang);
-            });
-        }
+    <div class="cards">
+      <div class="card"><h3>Golf Shafts</h3><p>Premium shafts for professional and custom club fitting.</p></div>
+      <div class="card"><h3>Golf Grips</h3><p>Comfortable, high-performance grips for every playing style.</p></div>
+      <div class="card"><h3>Club Heads</h3><p>Precision-engineered heads for maximum control and distance.</p></div>
+      <div class="card"><h3>Accessories</h3><p>Complete clubmaking tools and premium supporting equipment.</p></div>
+    </div>
+  </section>
 
-        function toggleMore(id, btn) {
-            const content = document.getElementById(id);
-            const isEn = document.querySelector('.lang-btn.active').innerText === 'EN';
-            
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                btn.innerText = isEn ? "Read More..." : "Baca Selengkapnya...";
-            } else {
-                content.style.display = "block";
-                btn.innerText = isEn ? "Show Less" : "Tampilkan Sedikit";
-            }
-        }
-    </script>
+  <section id="dealer">
+    <div class="section-title">
+      <h2>Our Dealer Network</h2>
+      <p>Expanding opportunities for golf shops and business partners across Indonesia.</p>
+    </div>
+
+    <div class="dealer-box">
+      <h3>FITONE Club Fitting Shops</h3>
+      <p>
+        Professional club fitting services and performance fitting certification under SNN management.
+        Join our growing nationwide dealer network and premium golf business ecosystem.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Let’s build premium golf business partnerships together.</p>
+    </div>
+
+    <p><strong>Address:</strong> Jl. Pintu Air V No.45, Jakarta, Indonesia</p>
+    <p><strong>Phone:</strong> +62 21 348 31468</p>
+    <p><strong>Email:</strong> rid1lim@snngolf.com</p>
+  </section>
+
+  <footer>
+    <p>© 2026 PT Sarana Nusantara Niagatama — Premium Golf Solutions</p>
+  </footer>
+
 </body>
 </html>
