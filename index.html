@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Sarana Nusantara Niagatama | Precision Golf Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>PT Sarana Nusantara Niagatama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --navy: #0a254d;
-            --dark-green: #2d5a27;
-            --red: #d42f2f;
-            --white: #ffffff;
-            --text: #333333;
-        }
-
+        :root { --navy: #0a254d; --red: #d42f2f; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body { font-family: 'Inter', sans-serif; color: var(--text); }
-
-        /* Navigation */
+        body { font-family: 'Inter', sans-serif; color: #333; }
+        
+        /* Navigasi */
         nav {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 0.8rem 10%;
+            background: white;
+            padding: 1rem 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,106 +21,86 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .nav-logo img { height: 50px; width: auto; }
-
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; }
-        nav a span { display: block; font-size: 0.6rem; color: var(--red); font-weight: 400; margin-top: -5px; }
+        .nav-logo img { height: 50px; }
+        .nav-menu { display: flex; align-items: center; gap: 2rem; }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; }
+        
+        /* Language Switcher */
+        .lang-switch { display: flex; gap: 5px; margin-left: 20px; }
+        .lang-btn { 
+            cursor: pointer; padding: 5px 10px; border: 1px solid var(--navy); 
+            font-size: 0.7rem; font-weight: bold; border-radius: 4px;
+        }
+        .lang-btn.active { background: var(--navy); color: white; }
 
         /* Hero */
         #hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2000') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: var(--white); padding: 0 10%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2000') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
         }
+        #hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-top: 15px; }
 
-        #hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 1rem; }
-        #hero p { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; border-bottom: 2px solid var(--red); padding-bottom: 5px; }
-
-        /* Sections */
-        .section-padding { padding: 100px 10%; text-align: center; }
-        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--navy); }
-        .section-title p { font-size: 0.9rem; color: var(--dark-green); margin-bottom: 50px; text-transform: uppercase; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { padding: 40px; background: #f9f9f9; border-top: 5px solid var(--navy); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-top-color: var(--red); }
-        .card h3 { margin-bottom: 15px; color: var(--navy); }
-        .card .en { font-style: italic; color: #777; font-size: 0.9rem; margin-top: 10px; display: block; }
-
-        footer { background: #050f1f; color: white; padding: 50px 10%; text-align: center; }
+        .section { padding: 80px 10%; text-align: center; }
+        [lang="en"] { display: none; } /* Sembunyikan English secara default */
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-logo">
-            <!-- Pastikan upload logo dengan nama logo-snn.png -->
+            <!-- Panggil file logo-snn.png -->
             <img src="logo-snn.png" alt="PT Sarana Nusantara Niagatama">
         </div>
-        <ul>
-            <li><a href="#hero">BERANDA<span>HOME</span></a></li>
-            <li><a href="#about">TENTANG KAMI<span>ABOUT US</span></a></li>
-            <li><a href="#products">PRODUK<span>PRODUCTS</span></a></li>
-            <li><a href="#contact">KONTAK<span>CONTACT</span></a></li>
-        </ul>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#hero" class="tr" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+                <li><a href="#about" class="tr" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+                <li><a href="#contact" class="tr" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+            </ul>
+            <div class="lang-switch">
+                <span class="lang-btn active" onclick="setLang('id')">ID</span>
+                <span class="lang-btn" onclick="setLang('en')">EN</span>
+            </div>
+        </div>
     </nav>
 
     <header id="hero">
-        <p>Precision • Performance • Partnership</p>
-        <h1>Elevating Your Golf Experience Since 2004.</h1>
+        <p class="tr" data-id="PRECISION • PERFORMANCE • PARTNERSHIP" data-en="PRECISION • PERFORMANCE • PARTNERSHIP">PRECISION • PERFORMANCE • PARTNERSHIP</p>
+        <h1 id="hero-title">Elevating Your Golf Experience Since 2004.</h1>
     </header>
 
-    <section id="about" class="section-padding">
-        <div class="section-title">
-            <h2>Tentang Kami</h2>
-            <p>About Us</p>
-        </div>
-        <p>PT Sarana Nusantara Niagatama adalah distributor peralatan golf premium yang berfokus pada kualitas dan kemitraan jangka panjang di Indonesia. 
-           <span style="display:block; margin-top:10px; font-style:italic; color:#666;">PT Sarana Nusantara Niagatama is a premium golf equipment distributor focusing on quality and long-term partnership in Indonesia.</span>
+    <section id="about" class="section">
+        <h2 class="tr" data-id="Tentang Kami" data-en="About Us">Tentang Kami</h2>
+        <p style="margin-top:20px;" class="tr" 
+           data-id="PT Sarana Nusantara Niagatama adalah distributor peralatan golf premium di Indonesia." 
+           data-en="PT Sarana Nusantara Niagatama is a premium golf equipment distributor in Indonesia.">
+           PT Sarana Nusantara Niagatama adalah distributor peralatan golf premium di Indonesia.
         </p>
     </section>
 
-    <section id="products" class="section-padding" style="background:#f0f2f5;">
-        <div class="section-title">
-            <h2>Layanan & Produk</h2>
-            <p>Services & Products</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <h3>Distribusi Peralatan</h3>
-                <p>Akses ke berbagai brand golf internasional premium.</p>
-                <span class="en">Access to various premium international golf brands.</span>
-            </div>
-            <div class="card">
-                <h3>Custom Fitting</h3>
-                <p>Optimalkan performa ayunan Anda dengan ahli kami.</p>
-                <span class="en">Optimize your swing performance with our experts.</span>
-            </div>
-            <div class="card">
-                <h3>Event & Tournament</h3>
-                <p>Pengelolaan turnamen profesional seperti Jago Golf Monthly Medal.</p>
-                <span class="en">Professional tournament management like Jago Golf Monthly Medal.</span>
-            </div>
-        </div>
-    </section>
+    <script>
+        function setLang(lang) {
+            // Update tombol aktif
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-    <section id="contact" class="section-padding">
-        <div class="section-title">
-            <h2>Hubungi Kami</h2>
-            <p>Contact Us</p>
-        </div>
-        <p>Email: rid1lim@snngolf.com</p>
-    </section>
+            // Ganti teks
+            document.querySelectorAll('.tr').forEach(el => {
+                el.innerText = el.getAttribute('data-' + lang);
+            });
 
-    <footer>
-        <p>&copy; 2026 PT Sarana Nusantara Niagatama. All Rights Reserved.</p>
-    </footer>
-
+            // Khusus untuk judul besar jika ingin dibedakan
+            const heroTitle = document.getElementById('hero-title');
+            if(lang === 'en') {
+                heroTitle.innerText = "Elevating Your Golf Experience Since 2004.";
+            } else {
+                heroTitle.innerText = "Meningkatkan Pengalaman Golf Anda Sejak 2004.";
+            }
+        }
+    </script>
 </body>
 </html>
