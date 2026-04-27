@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0b2c4d; /* SNN Navy */
-      --snn-green: #2d5a27; /* SNN Green */
+      --primary: #0b2c4d;
+      --snn-green: #2d5a27;
       --snn-blue: #3498db;
       --light-gray: #f4f7f9;
       --dark-text: #0f172a;
@@ -16,98 +16,97 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; color: var(--dark-text); line-height: 1.7; background-color: var(--white); }
+    body { font-family: 'Inter', sans-serif; color: var(--dark-text); line-height: 1.7; background-color: var(--white); overflow-x: hidden; }
 
-    /* Modern Clean Nav */
+    /* NAV RAPIH */
     nav {
       position: fixed; top: 0; width: 100%; background: var(--white);
       padding: 10px 8%; display: flex; justify-content: space-between;
       align-items: center; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    .nav-logo img { height: 50px; display: block; }
+    .nav-logo img { height: 45px; width: auto; display: block; }
     
     .lang-switcher { display: flex; gap: 4px; background: #f1f5f9; padding: 4px; border-radius: 8px; }
     .lang-btn { 
-      padding: 6px 16px; font-size: 0.75rem; font-weight: 800; cursor: pointer; 
+      padding: 6px 14px; font-size: 0.7rem; font-weight: 800; cursor: pointer; 
       border-radius: 6px; border: none; transition: 0.4s; color: #64748b;
     }
-    .lang-btn.active { background: var(--primary); color: white; box-shadow: 0 4px 10px rgba(11, 44, 77, 0.2); }
+    .lang-btn.active { background: var(--primary); color: white; }
 
-    /* Hero Section - Split Layout Look */
+    /* HERO DENGAN VIDEO BACKGROUND */
     #hero {
-      height: 90vh;
+      height: 100vh; width: 100%; position: relative;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, rgba(11, 44, 77, 0.95) 0%, rgba(11, 44, 77, 0.8) 100%), 
-                  url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1600') center/cover;
-      color: white; text-align: center; padding: 0 8%;
+      overflow: hidden; color: white; text-align: center; padding: 0 5%;
     }
-    #hero h1 { font-size: 4rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 25px; }
-    #hero p { font-size: 1.25rem; font-weight: 300; max-width: 700px; margin: 0 auto 40px; color: rgba(255,255,255,0.8); }
-
-    section { padding: 120px 8%; }
-    .section-title { margin-bottom: 60px; }
-    .section-title h2 { font-size: 2.5rem; color: var(--primary); font-weight: 900; letter-spacing: -1px; position: relative; display: inline-block; }
-    .section-title h2::after { content: ""; position: absolute; left: 0; bottom: -10px; width: 60px; height: 5px; background: var(--snn-green); }
-
-    /* About & Visi Misi Card */
-    .about-box { font-size: 1.2rem; color: #475569; max-width: 900px; }
+    .video-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: -1;
+    }
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.7));
+      z-index: 0;
+    }
+    .hero-content { z-index: 1; width: 100%; max-width: 900px; }
     
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; background: var(--light-gray); border-radius: 40px; margin: 0 4%; padding: 80px; }
-    .list-style { list-style: none; margin-top: 30px; }
-    .list-style li { margin-bottom: 20px; padding-left: 35px; position: relative; font-weight: 500; font-size: 1rem; color: #334155; }
+    /* Mencegah Layout Bergeser saat ganti bahasa */
+    #hero h1 { 
+      font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: -2px; 
+      line-height: 1.1; margin-bottom: 20px; min-height: 2.2em; display: flex; align-items: center; justify-content: center;
+    }
+    #hero p { 
+      font-size: clamp(1rem, 4vw, 1.25rem); font-weight: 300; max-width: 700px; 
+      margin: 0 auto 40px; color: rgba(255,255,255,0.9); min-height: 3.4em;
+    }
+
+    section { padding: 100px 8%; }
+    .section-title { margin-bottom: 50px; }
+    .section-title h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--primary); font-weight: 900; position: relative; }
+    .section-title h2::after { content: ""; position: absolute; left: 0; bottom: -10px; width: 50px; height: 5px; background: var(--snn-green); }
+
+    /* GRID RESPONSIVE */
+    .grid-2 { 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 40px; background: var(--light-gray); border-radius: 30px; padding: 60px 8%; margin: 0 4%; 
+    }
+    .list-style { list-style: none; margin-top: 20px; }
+    .list-style li { margin-bottom: 15px; padding-left: 30px; position: relative; font-weight: 500; }
     .list-style li::before { content: "→"; color: var(--snn-green); font-weight: 900; position: absolute; left: 0; }
 
-    /* Service Cards Modernized */
-    .card-main { background: var(--primary); color: white; padding: 60px; border-radius: 30px; position: relative; overflow: hidden; }
-    .card-main::before { content: ""; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; }
-    .card-main h3 { font-size: 2rem; margin-bottom: 40px; font-weight: 800; border-left: 6px solid var(--snn-blue); padding-left: 20px; }
-    
-    .eo-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .eo-item { 
-      background: rgba(255,255,255,0.08); padding: 25px; border-radius: 15px; 
-      font-size: 0.95rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.3s;
-    }
-    .eo-item:hover { background: var(--snn-green); transform: scale(1.05); }
+    /* SERVICES */
+    .card-main { background: var(--primary); color: white; padding: clamp(30px, 5vw, 60px); border-radius: 30px; }
+    .eo-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+    .eo-item { background: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; text-align: center; }
 
-    .card-sub { background: #fff; padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-top: 40px; }
-    .card-sub h3 { color: var(--primary); font-weight: 800; margin-bottom: 20px; }
+    /* GALLERY */
+    .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    .photo-placeholder { background: #e2e8f0; aspect-ratio: 4/3; border-radius: 15px; display: flex; align-items: flex-end; padding: 20px; font-size: 0.7rem; font-weight: 800; color: #64748b; transition: 0.3s; }
+    .photo-placeholder:hover { background: var(--primary); color: white; transform: translateY(-5px); }
 
-    /* Gallery - Activity Grid */
-    .activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .photo-placeholder { 
-      background: #e2e8f0; aspect-ratio: 4/3; border-radius: 20px; display: flex; 
-      align-items: flex-end; padding: 25px; color: #64748b; font-size: 0.8rem;
-      font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-      transition: 0.5s; border: 1px solid rgba(0,0,0,0.05);
-    }
-    .photo-placeholder:hover { background: var(--primary); color: white; transform: translateY(-10px); }
-
-    /* Market Section */
-    .market-container { display: flex; align-items: center; gap: 80px; }
-    .market-img { 
-      width: 400px; height: 400px; border-radius: 30px; overflow: hidden; 
-      transform: rotate(-3deg); transition: 0.5s;
-    }
-    .market-img:hover { transform: rotate(0deg) scale(1.05); }
+    /* MARKET */
+    .market-container { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; }
+    .market-img { width: 100%; max-width: 400px; aspect-ratio: 1; border-radius: 30px; overflow: hidden; }
     .market-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Button Premium */
     .btn { 
-      display: inline-block; background: var(--snn-green); color: white; 
-      padding: 22px 50px; text-decoration: none; border-radius: 12px; 
-      font-weight: 800; text-transform: uppercase; transition: 0.4s; 
-      letter-spacing: 2px; font-size: 0.9rem; box-shadow: 0 10px 30px rgba(45, 90, 39, 0.3);
+      display: inline-block; background: var(--snn-green); color: white; padding: 18px 35px; 
+      text-decoration: none; border-radius: 10px; font-weight: 800; text-transform: uppercase; 
+      transition: 0.4s; letter-spacing: 1px; font-size: 0.85rem;
     }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(45, 90, 39, 0.5); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(45, 90, 39, 0.4); }
 
-    footer { background: #020617; color: white; text-align: center; padding: 100px 8% 50px; }
-    footer h2 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
+    footer { background: #020617; color: white; text-align: center; padding: 80px 8% 40px; }
 
-    @media (max-width: 992px) { 
-      #hero h1 { font-size: 2.5rem; }
-      .grid-2 { grid-template-columns: 1fr; padding: 40px; }
-      .eo-grid-3, .activity-grid, .market-container { grid-template-columns: 1fr; flex-direction: column; }
+    /* MOBILE ADJUSTMENTS */
+    @media (max-width: 768px) {
+      nav { padding: 10px 5%; }
+      section { padding: 60px 5%; }
+      .grid-2 { margin: 0; border-radius: 0; padding: 40px 5%; }
+      .market-container { justify-content: center; text-align: center; }
+      .section-title h2::after { left: 50%; transform: translateX(-50%); }
+      .section-title { text-align: center; }
+      .list-style li { text-align: left; }
     }
   </style>
 </head>
@@ -124,7 +123,13 @@
   </nav>
 
   <section id="hero">
-    <div>
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-man-playing-golf-on-a-sunny-day-2073-large.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
         <h1 class="tr" data-id="PREMIUM CORPORATE GOLF EVENT" data-en="PREMIUM CORPORATE GOLF EVENT">PREMIUM CORPORATE<br>GOLF EVENT</h1>
         <p class="tr" data-id="Solusi profesional untuk penyelenggaraan turnamen golf korporat yang eksklusif dan berdampak strategis." data-en="Professional solutions for organizing exclusive and strategically impactful corporate golf tournaments.">
           Solusi profesional untuk penyelenggaraan turnamen golf korporat yang eksklusif dan berdampak strategis.
@@ -137,30 +142,28 @@
     <div class="section-title">
       <h2 class="tr" data-id="PARTNER STRATEGIS ANDA" data-en="YOUR STRATEGIC PARTNER">PARTNER STRATEGIS ANDA</h2>
     </div>
-    <div class="about-box">
-      <p class="tr" 
-         data-id="PT Sarana Nusantara Niagatama (SNN) didirikan pada Januari 2004 sebagai ahli dalam penyelenggaraan turnamen golf profesional di Indonesia. Kami memahami bahwa golf bukan sekadar olahraga, melainkan instrumen networking bisnis yang sangat prestisius untuk memperkuat relasi antar korporasi." 
-         data-en="PT Sarana Nusantara Niagatama (SNN) was established in January 2004 as an expert in organizing professional golf tournaments in Indonesia. We understand that golf is not just a sport, but a highly prestigious business networking instrument to strengthen relationships between corporations.">
-         PT Sarana Nusantara Niagatama (SNN) didirikan pada Januari 2004 sebagai ahli dalam penyelenggaraan turnamen golf profesional di Indonesia. Kami memahami bahwa golf bukan sekadar olahraga, melainkan instrumen networking bisnis yang sangat prestisius untuk memperkuat relasi antar korporasi.
-      </p>
-    </div>
+    <p class="tr" style="max-width: 800px; font-size: 1.1rem; color: #475569;"
+       data-id="PT Sarana Nusantara Niagatama (SNN) didirikan pada Januari 2004 sebagai ahli dalam penyelenggaraan turnamen golf profesional di Indonesia. Kami memahami bahwa golf bukan sekadar olahraga, melainkan instrumen networking bisnis yang sangat prestisius." 
+       data-en="PT Sarana Nusantara Niagatama (SNN) was established in January 2004 as an expert in organizing professional golf tournaments in Indonesia. We understand that golf is not just a sport, but a highly prestigious business networking instrument.">
+       PT Sarana Nusantara Niagatama (SNN) didirikan pada Januari 2004 sebagai ahli dalam penyelenggaraan turnamen golf profesional di Indonesia. Kami memahami bahwa golf bukan sekadar olahraga, melainkan instrumen networking bisnis yang sangat prestisius.
+    </p>
   </section>
 
   <div class="grid-2">
     <div>
-      <h2 style="color: var(--primary); font-size: 2.5rem; font-weight: 900; letter-spacing: -1px;">VISI</h2>
-      <p class="tr" style="margin-top:20px; color:#475569;"
-         data-id="Menjadi mitra utama korporasi dalam menciptakan event golf yang mampu memperkuat branding dan networking bisnis di level tertinggi di seluruh Indonesia." 
-         data-en="To be the primary corporate partner in creating golf events that strengthen business branding and networking at the highest level across Indonesia.">
-         Menjadi mitra utama korporasi dalam menciptakan event golf yang mampu memperkuat branding dan networking bisnis di level tertinggi di seluruh Indonesia.
+      <h2 style="color: var(--primary); font-weight: 900;">VISI</h2>
+      <p class="tr" style="margin-top:15px; color:#475569;"
+         data-id="Menjadi mitra utama korporasi dalam menciptakan event golf yang mampu memperkuat branding dan networking bisnis di level tertinggi." 
+         data-en="To be the primary corporate partner in creating golf events that strengthen business branding and networking at the highest level.">
+         Menjadi mitra utama korporasi dalam menciptakan event golf yang mampu memperkuat branding dan networking bisnis di level tertinggi.
       </p>
     </div>
     <div>
-      <h2 style="color: var(--primary); font-size: 2.5rem; font-weight: 900; letter-spacing: -1px;">MISI</h2>
+      <h2 style="color: var(--primary); font-weight: 900;">MISI</h2>
       <ul class="list-style">
         <li class="tr" data-id="Hospitality VIP standar internasional." data-en="International standard VIP hospitality.">Hospitality VIP standar internasional.</li>
         <li class="tr" data-id="Solusi end-to-end event golf kreatif." data-en="Creative end-to-end golf event solutions.">Solusi end-to-end event golf kreatif.</li>
-        <li class="tr" data-id="Membangun hubungan jangka panjang klien korporat." data-en="Building long-term corporate client relationships.">Membangun hubungan jangka panjang klien korporat.</li>
+        <li class="tr" data-id="Hubungan jangka panjang klien korporat." data-en="Long-term corporate client relationships.">Hubungan jangka panjang klien korporat.</li>
       </ul>
     </div>
   </div>
@@ -169,26 +172,16 @@
     <div class="section-title">
       <h2 class="tr" data-id="LAYANAN EVENT GOLF" data-en="GOLF EVENT SERVICES">LAYANAN EVENT GOLF</h2>
     </div>
-
     <div class="card-main">
-      <h3 class="tr" data-id="Professional Event Management" data-en="Professional Event Management">Professional Event Management</h3>
+      <h3 class="tr" style="border-left: 5px solid var(--snn-blue); padding-left: 15px;" data-id="Professional Event Management" data-en="Professional Event Management">Professional Event Management</h3>
       <div class="eo-grid-3">
-        <div class="eo-item tr" data-id="Corporate Tournament" data-en="Corporate Tournament">Corporate Tournament</div>
-        <div class="eo-item tr" data-id="Charity & Invitational" data-en="Charity & Invitational">Charity & Invitational</div>
-        <div class="eo-item tr" data-id="Executive Networking" data-en="Executive Networking">Executive Networking</div>
-        <div class="eo-item tr" data-id="Professional Scoring" data-en="Professional Scoring">Professional Scoring</div>
-        <div class="eo-item tr" data-id="VIP Hospitality" data-en="VIP Hospitality">VIP Hospitality</div>
-        <div class="eo-item tr" data-id="Branding Management" data-en="Branding Management">Branding Management</div>
+        <div class="eo-item">Corporate Tournament</div>
+        <div class="eo-item">Charity & Invitational</div>
+        <div class="eo-item">Executive Networking</div>
+        <div class="eo-item">Professional Scoring</div>
+        <div class="eo-item">VIP Hospitality</div>
+        <div class="eo-item">Branding Management</div>
       </div>
-    </div>
-
-    <div class="card-sub">
-      <h3 class="tr" data-id="Dukungan Perlengkapan & Merchandise" data-en="Equipment & Merchandise Support">Dukungan Perlengkapan & Merchandise</h3>
-      <p class="tr" style="color:#64748b;"
-         data-id="Kami melengkapi eksklusivitas event Anda dengan penyediaan apparel premium, golf bags, merchandise korporat, dan trophy kustom berkualitas tinggi untuk para pemenang." 
-         data-en="We complement the exclusivity of your event by providing premium apparel, golf bags, corporate merchandise, and high-quality custom trophies for the winners.">
-         Kami melengkapi eksklusivitas event Anda dengan penyediaan apparel premium, golf bags, merchandise korporat, dan trophy kustom berkualitas tinggi untuk para pemenang.
-      </p>
     </div>
   </section>
 
@@ -197,37 +190,16 @@
       <h2 class="tr" data-id="KEGIATAN KAMI" data-en="OUR ACTIVITIES">KEGIATAN KAMI</h2>
     </div>
     <div class="activity-grid">
-      <div class="photo-placeholder tr" data-id="Corporate Tournament" data-en="Corporate Tournament">Corporate Tournament</div>
-      <div class="photo-placeholder tr" data-id="Charity Event" data-en="Charity Event">Charity Event</div>
-      <div class="photo-placeholder tr" data-id="Executive Networking" data-en="Executive Networking">Executive Networking</div>
-      <div class="photo-placeholder tr" data-id="Course Branding" data-en="Course Branding">Course Branding</div>
-      <div class="photo-placeholder tr" data-id="Awarding Ceremony" data-en="Awarding Ceremony">Awarding Ceremony</div>
-      <div class="photo-placeholder tr" data-id="VIP Hospitality" data-en="VIP Hospitality">VIP Hospitality</div>
-    </div>
-  </section>
-
-  <section id="market">
-    <div class="market-container">
-      <div class="market-img">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Corporate Partner">
-      </div>
-      <div>
-        <h2 class="tr" data-id="KLIEN STRATEGIS" data-en="STRATEGIC CLIENTS" style="font-size: 2.5rem; color: var(--primary); font-weight: 900; margin-bottom: 30px;">KLIEN STRATEGIS</h2>
-        <ul class="list-style">
-          <li class="tr" data-id="Perusahaan BUMN & Multinasional" data-en="SOE & Multinational Companies">Perusahaan BUMN & Multinasional</li>
-          <li class="tr" data-id="Institusi Perbankan & Keuangan" data-en="Banking & Financial Institutions">Institusi Perbankan & Keuangan</li>
-          <li class="tr" data-id="Developer Properti & Luxury Brands" data-en="Property Developers & Luxury Brands">Developer Properti & Luxury Brands</li>
-          <li class="tr" data-id="Komunitas Bisnis & Eksekutif" data-en="Business & Executive Communities">Komunitas Bisnis & Eksekutif</li>
-        </ul>
-      </div>
+      <div class="photo-placeholder">Corporate Tournament</div>
+      <div class="photo-placeholder">Charity Event</div>
+      <div class="photo-placeholder">Executive Networking</div>
     </div>
   </section>
 
   <footer>
     <h2 class="tr" data-id="SIAP BERKOLABORASI?" data-en="READY TO COLLABORATE?">SIAP BERKOLABORASI?</h2>
-    <p style="margin: 20px 0; color: rgba(255,255,255,0.6);">PT Sarana Nusantara Niagatama | rid1lim@snngolf.com</p>
-    <div style="width: 50px; height: 2px; background: var(--snn-green); margin: 30px auto;"></div>
-    <p style="font-size: 0.75rem; opacity: 0.4; letter-spacing: 1px;">© 2026 SNN GOLF INDONESIA. PROFESSIONAL GOLF EVENT SOLUTION.</p>
+    <p style="margin: 20px 0; opacity: 0.7;">PT Sarana Nusantara Niagatama | rid1lim@snngolf.com</p>
+    <p style="font-size: 0.7rem; opacity: 0.4;">© 2026 SNN GOLF INDONESIA.</p>
   </footer>
 
   <script>
